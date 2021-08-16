@@ -7,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace DinosaurAPI.ImplementationClasses
 {
-    public class GenerateStaminaLandDinov1 : IStatsGenerator
+    public class GenerateStrenghtLandDinov1 : IStatsGenerator
     {
-        //This Implementation Generates Stamina stats for Landdinosaur
+        //This Implementation Generates Strenght stats for Landdinosaur
         //Im keeping these implementations to each separate type of dino by choice so i got more control in the future to balance out the game for each type of dinosaur.
         public double GenerateStats()
         {
-            GenerateRandomStatHelperLandDino generateStamina = new GenerateRandomStatHelperLandDino();
-
-            double responseStamina = generateStamina.GenerateRandomStaminaLandDino();
-
-            return responseStamina;
+            GenerateRandomStatHelperLandDino generateStrenght = new GenerateRandomStatHelperLandDino();
+            double responseStrenght = generateStrenght.GenerateRandomStrenghtLandDino();
+            return responseStrenght;
         }
     }
 }
