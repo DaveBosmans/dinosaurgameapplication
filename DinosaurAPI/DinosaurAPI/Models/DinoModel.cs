@@ -20,5 +20,6 @@ namespace DinosaurAPI.Models
         public double Food { get; set; }
         public double Intelligence { get; set; }
         public string ImageLink { get; set; }
+        public string DinoSoundLink { get; set; }
     }
 }
