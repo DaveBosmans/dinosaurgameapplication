@@ -1,6 +1,8 @@
-﻿using DinosaurAPI.HelperClasses;
+﻿using DinosaurAPI.DatabaseContext;
+using DinosaurAPI.HelperClasses;
 using DinosaurAPI.Interfaces;
 using DinosaurAPI.JSONInputClasses;
+using DinosaurAPI.JSONOutputClasses;
 using DinosaurAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -11,24 +13,24 @@ namespace DinosaurAPI.ImplementationClasses
 {
     public class GenerateLandDinov1 : IDinoGenerator
     {
-        public DinoModel generateDino(DinoJSONInput dinoJSONInput)
+        public DinoJSONResponse generateDino(DinoJSONInput dinoJSONInput, DinoDBContext _context)
         {
 
-        //Fill up the dinomodel
-        //public int DinoLevel { get; set; } - DONE
-        //public string DinosaurName { get; set; } - DONE
-        //public string TypeOfDino { get; set; } - DONE
-        //public double Health { get; set; } - DONE
-        //public double Stamina { get; set; } - DONE
-        //public double Strenght { get; set; } - DONE
-        //public double Defence { get; set; } - DONE
-        //public double Food { get; set; } - DONE
-        //public double Intelligence { get; set; } - DONE
-        //public string ImageLink { get; set; } - DONE
-        //public string DinoSoundLink { get; set; } - DONE
+            //Fill up the dinomodel
+            //public int DinoLevel { get; set; } - DONE
+            //public string DinosaurName { get; set; } - DONE
+            //public string TypeOfDino { get; set; } - DONE
+            //public double Health { get; set; } - DONE
+            //public double Stamina { get; set; } - DONE
+            //public double Strenght { get; set; } - DONE
+            //public double Defence { get; set; } - DONE
+            //public double Food { get; set; } - DONE
+            //public double Intelligence { get; set; } - DONE
+            //public string ImageLink { get; set; } - DONE
+            //public string DinoSoundLink { get; set; } - DONE
 
-            //Initiate the dinosaurmodel
-            var tempGeneratedDinosaur = new DinoModel();
+            //Initiate the DinosaurResponse
+            DinoJSONResponse tempGeneratedDinosaur = new DinoJSONResponse();
 
             //Set the id of the dinosaur coming from id creation interface and implementation
             ICreateUniqueID createUniqueID = new CreateUniqueIDv1();
@@ -75,6 +77,19 @@ namespace DinosaurAPI.ImplementationClasses
             //DinosaurSoundEffect will be picked by implementation later on for now they all have one and the same sound setted here.
             tempGeneratedDinosaur.DinoSoundLink = "https://drive.google.com/file/d/1qBtssqXyGywgnOuzOk1mdYyeBBlysDPK/view?usp=sharing";
 
+            //Add a succes message
+            tempGeneratedDinosaur.CreatedDinoMessage = "You got a awesome new Dinosaur! WAUWW!!!";
+
+
+            //Add model to database
+            //Initiate the dinosaurmodel
+            var dinosaurmodel = new DinoModel();
+            dinosaurmodel = tempGeneratedDinosaur;
+
+            //Add Dinosaurmodel to the context
+            _context.Dinosaurs.Add(dinosaurmodel);
+            //Save changes
+            _context.SaveChangesAsync();
 
             return tempGeneratedDinosaur;
         }

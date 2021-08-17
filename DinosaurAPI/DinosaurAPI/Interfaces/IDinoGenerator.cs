@@ -1,4 +1,6 @@
-﻿using DinosaurAPI.JSONInputClasses;
+﻿using DinosaurAPI.DatabaseContext;
+using DinosaurAPI.JSONInputClasses;
+using DinosaurAPI.JSONOutputClasses;
 using DinosaurAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,6 @@ namespace DinosaurAPI.Interfaces
 {
     interface IDinoGenerator
     {
-        public DinoModel generateDino (DinoJSONInput dinoJSONInput);
+        public DinoJSONResponse generateDino (DinoJSONInput dinoJSONInput, DinoDBContext _context);
     }
 }
