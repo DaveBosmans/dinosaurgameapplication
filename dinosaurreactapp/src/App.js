@@ -1,31 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [dinoName, setDinoName] = useState('');
+  const [dinoName, setDinoName] = useState({});
 
   const handleChange = (e) => {
-    setDinoName(e.target.value);
+    const { name, value } = e.target;
+    setDinoName({
+      ...dinoName,
+      [name]: value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const name = JSON.stringify(dinoName);
     const response = await axios.post(
       'https://localhost:5001/api/Dino/GenerateDinosaurWithDatabasev1',
-      dinoName
+      name,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
     );
-    const data = await response.json();
+    setDinoName({ dinosaurName: '' });
   };
-
-  // useEffect( () => {
-
-  // }, [])
 
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} />
+        <input type="text" onChange={handleChange} name="dinosaurName" />
         <button>Submit</button>
       </form>
     </div>
