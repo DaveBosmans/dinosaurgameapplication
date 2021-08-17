@@ -16,7 +16,7 @@ function App() {
     e.preventDefault();
     const name = JSON.stringify(dinoName);
     const response = await axios.post(
-      'https://localhost:5001/api/Dino/GenerateDinosaurWithDatabasev1',
+      'https://localhost:44311//api/Dino/GenerateDinosaurWithDatabasev1',
       name,
       {
         headers: {

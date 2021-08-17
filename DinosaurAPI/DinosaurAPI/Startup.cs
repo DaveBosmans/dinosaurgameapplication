@@ -35,7 +35,25 @@ namespace DinosaurAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DinosaurAPI", Version = "v1" });
             });
+
+
+            //lets add some CORS stuff 
+            //this is the standard way
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                builder.WithOrigins(Configuration["CorsOriginLocalHost"]);
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                    builder.AllowCredentials();
+                });
+            });
+
+
         }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -50,6 +68,8 @@ namespace DinosaurAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
