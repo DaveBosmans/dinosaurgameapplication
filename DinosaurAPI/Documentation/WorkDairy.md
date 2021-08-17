@@ -15,6 +15,8 @@
 
 1. Done creating Land Dinosaur. Now add database to it, create table for the dinosaur, create controller etc.
 
+1. Added Implementation, Added Database, Added database to Implementation, Added controller.
+
 public int DinoLevel { get; set; }
 public string DinosaurName { get; set; }
 public string TypeOfDino { get; set; }
