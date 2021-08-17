@@ -15,6 +15,7 @@ namespace DinosaurAPI.HelperClasses
             return random.Next(300, 500);
         }
 
+        //Generates Strenght for landdinosaur between two double numbers
         public double GenerateRandomStrenghtLandDino()
         {
             Random random = new Random();
@@ -22,6 +23,7 @@ namespace DinosaurAPI.HelperClasses
             return random.Next(50, 150);
         }
 
+        //Generates Stamina for landdinosaur between two double numbers
         public double GenerateRandomStaminaLandDino()
         {
             Random random = new Random();
@@ -29,6 +31,7 @@ namespace DinosaurAPI.HelperClasses
             return random.Next(300, 800);
         }
 
+        //Generates Defence for landdinosaur between two double numbers
         public double GenerateRandomDefenceLandDino()
         {
             Random random = new Random();
@@ -36,6 +39,7 @@ namespace DinosaurAPI.HelperClasses
             return random.Next(20, 100);
         }
 
+        //Generates Intelligence for landdinosaur between two double numbers
         public double GenerateRandomIntelligenceLandDino()
         {
             Random random = new Random();
@@ -43,6 +47,7 @@ namespace DinosaurAPI.HelperClasses
             return random.Next(10, 30);
         }
 
+        //Generates Food for landdinosaur between two double numbers
         public double GenerateRandomFoodLandDino()
         {
             Random random = new Random();
