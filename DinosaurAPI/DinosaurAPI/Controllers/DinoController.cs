@@ -16,6 +16,8 @@ namespace DinosaurAPI.Controllers
     [ApiController]
     public class DinoController : ControllerBase
     {
+
+        //Added the databasecontext to acces data table
         private DinoDBContext _context;
         public DinoController(DinoDBContext context)
         {
