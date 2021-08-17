@@ -10,6 +10,7 @@ namespace DinosaurAPI.Models
     //This model will be stored into the database.
     public class DinoModel : BaseUniqueID
     {
+        public int DinoModelID { get; set; }
         public int DinoLevel { get; set; }
         public string DinosaurName { get; set; }
         public string TypeOfDino { get; set; }

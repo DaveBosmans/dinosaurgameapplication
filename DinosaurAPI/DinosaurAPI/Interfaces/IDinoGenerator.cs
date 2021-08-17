@@ -9,6 +9,6 @@ namespace DinosaurAPI.Interfaces
 {
     interface IDinoGenerator
     {
-        public DinoModel dinoModel(DinoJSONInput dinoJSONInput);
+        public DinoModel generateDino (DinoJSONInput dinoJSONInput);
     }
 }
