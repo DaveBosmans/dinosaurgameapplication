@@ -3,6 +3,7 @@ using DinosaurAPI.ImplementationClasses;
 using DinosaurAPI.Interfaces;
 using DinosaurAPI.JSONInputClasses;
 using DinosaurAPI.JSONOutputClasses;
+using DinosaurAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -42,6 +43,5 @@ namespace DinosaurAPI.Controllers
             return tempGeneratedDinosaur;
 
         }
-
     }
 }
